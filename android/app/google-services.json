@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "516281240230",
+    "project_id": "caffinated-c6b4c",
+    "storage_bucket": "caffinated-c6b4c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:516281240230:android:f271a576ce6dbe27c24267",
+        "android_client_info": {
+          "package_name": "com.caffinated.ecom101"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "516281240230-hetrlhm4ccfoc8bp934tkcihp01ffg4t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCYnDattTF263Y9SL06ED4QR89bPZ_v7rM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "516281240230-hetrlhm4ccfoc8bp934tkcihp01ffg4t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
