@@ -1,3 +1,5 @@
+import 'package:ecom101/Providers/Authentication.dart';
+import 'package:ecom101/Providers/calculations.dart';
 import 'package:ecom101/helper/footer.dart';
 import 'package:ecom101/helper/headers.dart';
 import 'package:ecom101/sevices/managedata.dart';
@@ -19,6 +21,8 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
+        ChangeNotifierProvider.value(value: Calculations()),
+        ChangeNotifierProvider.value(value: Authentication()),
         ChangeNotifierProvider.value(value: Headers()),
         ChangeNotifierProvider.value(value: MidBodyHelper()),
         ChangeNotifierProvider.value(value: ManageData()),

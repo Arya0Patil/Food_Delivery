@@ -1,5 +1,8 @@
 import 'dart:async';
 import 'package:ecom101/main.dart';
+import 'package:ecom101/miniViews/Login.dart';
+import 'package:ecom101/views/Login.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
 import 'package:page_transition/page_transition.dart';
@@ -15,11 +18,18 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     Timer(
         Duration(seconds: 4),
-        () => Navigator.pushReplacement(
+        () => Navigator.push(
             context,
-            PageTransition(
-                child: HomeScreen(),
-                type: PageTransitionType.rightToLeftWithFade)));
+            MaterialPageRoute(
+              builder: (context) => StreamBuilder(
+                  stream: FirebaseAuth.instance.authStateChanges(),
+                  builder: (ctx, userSnapshot) {
+                    if (userSnapshot.hasData) {
+                      return HomeScreen();
+                    }
+                    return LogInScreen();
+                  }),
+            )));
     super.initState();
   }
 

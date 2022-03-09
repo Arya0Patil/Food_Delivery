@@ -1,7 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:ecom101/Providers/calculations.dart';
 import 'package:ecom101/helper/footer.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:provider/provider.dart';
+
+import 'CartisBack.dart';
 
 class DetailScreen extends StatefulWidget {
   final QueryDocumentSnapshot queryDocumentSnapshot;
@@ -121,27 +125,56 @@ class _DetailScreenState extends State<DetailScreen> {
               children: [
                 IconButton(
                   onPressed: () {
-                    if (quantity > 1) {
-                      quantity = quantity - 1;
-                    }
+                    Provider.of<Calculations>(context, listen: false)
+                        .removeQuantity();
                   },
                   icon: Icon(Icons.remove),
                 ),
                 Text(
-                  '$quantity',
+                  Provider.of<Calculations>(context, listen: true)
+                      .getQuantityvalue
+                      .toString(),
                   style: TextStyle(fontSize: 20),
                 ),
                 IconButton(
                   onPressed: () {
-                    quantity = quantity + 1;
+                    Provider.of<Calculations>(context, listen: false)
+                        .addQuantity();
                   },
                   icon: Icon(Icons.add),
                 ),
               ],
             )
           ],
-        )
+        ),
+        SizedBox(height: 20),
+        ElevatedButton(
+            onPressed: () {
+              Provider.of<Calculations>(context, listen: false)
+                  .addToCart(context, {
+                'image': widget.queryDocumentSnapshot['image'],
+                'name': widget.queryDocumentSnapshot['name'],
+                'category': widget.queryDocumentSnapshot['category'],
+                'price': widget.queryDocumentSnapshot['price'],
+                'quantity': Provider.of<Calculations>(context, listen: false)
+                    .getQuantityvalue,
+              });
+            },
+            child: Text('Add to Cart')),
       ],
+    );
+  }
+
+  Widget floatingButton() {
+    return FloatingActionButton(
+      onPressed: () {
+        Provider.of<Calculations>(context, listen: false).addToCart(context, {
+          'image': widget.queryDocumentSnapshot['image'],
+        });
+        Navigator.push(context,
+            MaterialPageRoute(builder: (BuildContext context) => Cart()));
+      },
+      child: Icon(Icons.shopping_bag),
     );
   }
 }

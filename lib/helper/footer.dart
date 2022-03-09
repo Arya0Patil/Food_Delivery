@@ -1,4 +1,4 @@
-import 'package:ecom101/views/cartScreen.dart';
+import 'package:ecom101/views/CartisBack.dart';
 import 'package:flutter/material.dart';
 
 class footer extends ChangeNotifier {

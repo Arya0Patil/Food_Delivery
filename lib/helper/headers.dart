@@ -1,5 +1,6 @@
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
+import 'package:ecom101/views/userProfile.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:flutter/material.dart';
 
 class Headers extends ChangeNotifier {
@@ -7,7 +8,15 @@ class Headers extends ChangeNotifier {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        IconButton(onPressed: () {}, icon: Icon(Icons.person)),
+        IconButton(
+            onPressed: () {
+              FirebaseAuth.instance.signOut();
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (BuildContext context) => UserProfile()));
+            },
+            icon: Icon(Icons.person)),
         Row(
           children: [
             Icon(

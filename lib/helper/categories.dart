@@ -1,3 +1,6 @@
+import 'package:ecom101/JamtaKya.dart';
+import 'package:ecom101/views/internship.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
 class Categories extends StatelessWidget {
@@ -44,7 +47,12 @@ class Categories extends StatelessWidget {
                       )),
                 )),
             InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) => TodoApp()));
+                },
                 child: Container(
                   padding: EdgeInsets.all(20),
                   decoration: BoxDecoration(
@@ -75,7 +83,13 @@ class Categories extends StatelessWidget {
           ]),
           Row(mainAxisAlignment: MainAxisAlignment.center, children: [
             InkWell(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (BuildContext context) =>
+                              UserInformation()));
+                },
                 child: Container(
                   padding: EdgeInsets.all(20),
 
@@ -112,7 +126,7 @@ class Categories extends StatelessWidget {
                     image: DecorationImage(
                         fit: BoxFit.cover,
                         image: NetworkImage(
-                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRQVKwwKKw4OCLZRy6imvNZP1An224GFBcxnopTng8qdQhIkMgxLo5614ZgHiQBpePK_A&usqp=CAU',
+                          'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQRQVKwwKKw4OCLZRy6imvNZP1An224GFBcxnopTng8qdQhIkMgxLo5614ZgHiQBpePK_A&usqp=CAU  ',
                         )),
                     color: Colors.yellow[800],
                     borderRadius: BorderRadius.circular(10)),

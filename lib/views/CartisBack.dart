@@ -1,3 +1,4 @@
+import 'package:ecom101/helper/categories.dart';
 import 'package:flutter/material.dart';
 
 class Cart extends StatefulWidget {
@@ -230,7 +231,12 @@ class _CartState extends State<Cart> {
       child: Center(
           child: ElevatedButton(
               // style: ButtonStyle(shadowColor: ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (BuildContext context) => Categories()));
+              },
               child: Container(
                   width: 150,
                   child: Row(
